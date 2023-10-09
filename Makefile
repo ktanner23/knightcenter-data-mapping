@@ -1,4 +1,8 @@
 # Here's where we'll put our Make commands
+
+greeting:
+	echo 'hello'
+
 directories:
 	-mkdir tmp
 	-mkdir data
@@ -20,3 +24,4 @@ filecheck:
 	--insecure \
 	--data '{"text":"The file you asked me to watch has changed!"}' $$SLACK_WEBHOOK
 
+	
