@@ -13,10 +13,10 @@ freshdata:
 all: directories downloads freshdata filecheck
 
 filecheck:
-		curl "https://s3.amazonaws.com/ktanner-data-public/inflation-map/inflation.csv/" -o  tmp/previous.csv
+	curl "https://s3.amazonaws.com/ktanner-data-public/inflation-map/inflation.csv/" -o  tmp/previous.csv
 
-		cmp --silent ./tmp/previous.csv ./data/inflation.csv || \
-		curl -X POST -H 'Content-type: application/json' \
-		--insecure \
-		--data '{"text":"The file you asked me to watch has changed!"}' $$SLACK_WEBHOOK
+	cmp --silent ./tmp/previous.csv ./data/inflation.csv || \
+	curl -X POST -H 'Content-type: application/json' \
+	--insecure \
+	--data '{"text":"The file you asked me to watch has changed!"}' $$SLACK_WEBHOOK
 
