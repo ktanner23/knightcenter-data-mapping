@@ -18,6 +18,9 @@ jobs:
       #     python-version: '3.x'
 
       - name: Process data 
+        env:
+          SLACK_WEBHOOK: ${{ secrets.SLACK_WEBHOOK }}
+
         run: make all
       
       - name: Upload to S3
